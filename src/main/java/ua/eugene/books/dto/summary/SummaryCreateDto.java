@@ -1,27 +1,20 @@
 package ua.eugene.books.dto.summary;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
-@Setter
-@Getter
+@Setter @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SummaryDto {
+public class SummaryCreateDto {
 
-    private Long id;
-    private Long userId;
+    @NotBlank
     private Long bookId;
+    @NotBlank
     private String content;
-    private boolean isPublic;
-    private int like;
-    private LocalDateTime createdAt;
-
+    private boolean isPublic = false;
 
 }
-
-

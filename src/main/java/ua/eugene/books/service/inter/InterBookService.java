@@ -12,4 +12,5 @@ public interface InterBookService {
     void deleteById(Long id);
     BookDto findById(Long id);
     List<BookDto> findByAllParam(String genre, String title, String author);
+    List<BookDto> getAllBooks();
 }

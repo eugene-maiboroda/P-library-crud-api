@@ -33,10 +33,19 @@ public class BookService implements InterBookService {
           return BookMapper.INSTANCE.entityToDto(book);
     }
 
+
     @Override
     public List<BookDto> findByAllParam(String genre, String name, String author) {
         List<Book> books = bookRepository.findWithFilters(genre,name,author);
         return books.stream().map(BookMapper.INSTANCE::entityToDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<BookDto> getAllBooks() {
+        List <Book>  books = bookRepository.findAll();
+        return books.stream()
+                .map(BookMapper.INSTANCE::entityToDto)
                 .collect(Collectors.toList());
     }
 

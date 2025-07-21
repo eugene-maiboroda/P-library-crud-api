@@ -2,6 +2,7 @@ package ua.eugene.books.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ua.eugene.books.dto.user.UserCreateDto;
 import ua.eugene.books.dto.userBook.UserBookDto;
 import ua.eugene.books.repository.UserBookRepository;
 import ua.eugene.books.service.inter.InterUserBookService;
@@ -12,20 +13,18 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserBookService implements InterUserBookService {
 
-    private final UserBookRepository userBookRepository;
-
     @Override
-    public void createNewUserBook(UserBookDto userBookDto) {
+    public void createNewUserBook(UserCreateDto userCreateDto) {
 
     }
 
     @Override
-    public void updateUserBook(UserBookDto userBookDto) {
+    public void updateUserBook(UserCreateDto userCreateDto) {
 
     }
 
     @Override
-    public void deleteUserBook(UserBookDto userBookDto) {
+    public void deleteUserBook(UserCreateDto userCreateDto) {
 
     }
 

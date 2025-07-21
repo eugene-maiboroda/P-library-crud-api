@@ -23,11 +23,15 @@ public class BookController {
         return bookService.findById(id);
     }
 
-    @GetMapping("/")
+    @GetMapping("/filter")
     public List<BookDto> findBookByAllParam(@RequestParam(required = false) String genre,
                                             @RequestParam(required = false) String name,
                                             @RequestParam(required = false) String author) {
         return bookService.findByAllParam(genre, name, author);
+    }
+    @GetMapping("/library")
+    public List<BookDto> getAllBooks() {
+        return bookService.getAllBooks();
     }
 
     @ResponseStatus(HttpStatus.CREATED)
