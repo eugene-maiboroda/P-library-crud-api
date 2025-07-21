@@ -1,11 +1,15 @@
-package ua.javik.mylibraryspringboot.service;
+package ua.javik.mylibraryspringboot.service.inter;
 
-import ua.javik.mylibraryspringboot.dto.BookDto;
+import ua.javik.mylibraryspringboot.dto.book.BookCreateDto;
+import ua.javik.mylibraryspringboot.dto.book.BookDto;
 
-public interface BookService {
+import java.util.List;
 
-    void creatNewBook(BookDto bookDto);
-    BookDto findById(Long id);
-    void updateBook(BookDto bookDto, Long id);
+public interface InterBookService {
+
+    void creatNewBook(BookCreateDto bookDto);
+    void updateBook(BookCreateDto bookDto, Long id);
     void deleteById(Long id);
+    BookDto findById(Long id);
+    List<BookDto> findByAllParam(String genre, String title, String author);
 }

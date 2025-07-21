@@ -1,4 +1,4 @@
-package ua.javik.mylibraryspringboot.dto.user;
+package ua.javik.mylibraryspringboot.dto;
 
 public class UserDto {
 }

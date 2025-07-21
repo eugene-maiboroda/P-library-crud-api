@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ua.javik.mylibraryspringboot.entity.Genre;
 
@@ -11,7 +12,8 @@ import java.sql.Date;
 
 @Getter @Setter
 @AllArgsConstructor
-public class BookDto {
+@NoArgsConstructor
+public class BookCreateDto {
 
     @NotBlank(message = "Book title must not be blank")
     private String name;

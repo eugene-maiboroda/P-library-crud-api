@@ -1,4 +1,4 @@
-package ua.javik.mylibraryspringboot.dto;
+package ua.javik.mylibraryspringboot.dto.userBook;
 
 public class UserBookDto {
 }

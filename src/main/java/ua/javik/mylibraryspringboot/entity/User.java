@@ -3,6 +3,7 @@ package ua.javik.mylibraryspringboot.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -10,18 +11,30 @@ import java.util.List;
 @Getter @Setter
 @Table(name = "users")
 @Entity
-public class UserEntity {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String email;
+    @Column(nullable = false)
+    private String login;
+
+    @Column(nullable = false)
     private String password;
-    private String role;
-    @OneToMany(mappedBy = '')
-    private List<BookEntity> books;
+
+    @Column(nullable = false)
+    private Date dateBirthday;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @OneToMany(mappedBy = "author")
+    private List<Summary> summaries;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserBook> userBooks;
 
 
 }

@@ -2,39 +2,36 @@ package ua.javik.mylibraryspringboot.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
-import java.lang.annotation.Target;
 import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
 @Table(name = "summaries")
 @Entity
-public class SummaryEntity {
+public class Summary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "summary_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
-    private UserEntity author;
+    @ManyToOne()
+    @JoinColumn(name = "user_id")
+    private User author;
 
-    @ManyToOne
-    @JoinColumn(name = "id_book", nullable = false)
-    private BookEntity book;
+    @ManyToOne()
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book book;
 
-    @Column(name = "content", length = 5000)
+    @Column(length = 5000)
     private String content;
 
-    @Column(name = "published")
-    private boolean published;
+    private boolean isPublic;
 
-    @Column(name = "likes")
     private int likes;
 
-    @Column(name = "created_at")
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
 }

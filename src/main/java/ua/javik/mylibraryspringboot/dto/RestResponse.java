@@ -1,2 +1,4 @@
-package ua.javik.mylibraryspringboot.dto;public class RestRespons {
+package ua.javik.mylibraryspringboot.dto;
+
+public record RestResponse(String result) {
 }

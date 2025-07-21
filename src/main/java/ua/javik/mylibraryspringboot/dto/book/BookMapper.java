@@ -1,9 +1,8 @@
-package ua.javik.mylibraryspringboot.mapper;
+package ua.javik.mylibraryspringboot.dto.book;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
-import ua.javik.mylibraryspringboot.dto.BookDto;
 import ua.javik.mylibraryspringboot.entity.Book;
 
 @Mapper(componentModel = "spring")
@@ -13,7 +12,7 @@ public interface BookMapper {
 
 
     BookDto entityToDto (Book book);
-    Book dtoToEntity (BookDto bookDto);
-    Book mapEntityWithDto(@MappingTarget Book book, BookDto bookDto);
+    Book dtoToEntity (BookCreateDto bookDto);
+    Book mapEntityWithDto(@MappingTarget Book book, BookCreateDto bookDto);
 }
 

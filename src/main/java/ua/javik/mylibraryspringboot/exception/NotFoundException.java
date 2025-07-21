@@ -1,4 +1,4 @@
-package ua.javik.mylibraryspringboot.exeption;
+package ua.javik.mylibraryspringboot.exception;
 
 public class NotFoundException extends RuntimeException {
 

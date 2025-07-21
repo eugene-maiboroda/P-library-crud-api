@@ -1,11 +1,10 @@
-package ua.javik.mylibraryspringboot.service;
+package ua.javik.mylibraryspringboot.service.inter;
 
-import ua.javik.mylibraryspringboot.dto.BookDto;
-import ua.javik.mylibraryspringboot.entity.Summary;
+import ua.javik.mylibraryspringboot.dto.summary.SummaryDto;
 
 import java.util.List;
 
-public interface SummaryService {
+public interface InterSummaryService {
 
     void createNewSummary(SummaryDto summaryDto);
 
@@ -13,7 +12,7 @@ public interface SummaryService {
 
     void deleteById(Long id);
 
-    List<SummaryDto> findByBookId(Long bookId);
+    List<SummaryDto> getAllByUserId(Long bookId);
 
 
 }

@@ -1,8 +1,7 @@
-package ua.javik.mylibraryspringboot.dto;
+package ua.javik.mylibraryspringboot.dto.summary;
 
 public class SummaryDto {
 
-    private
 
 }
 

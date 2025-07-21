@@ -3,36 +3,34 @@ package ua.javik.mylibraryspringboot.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter@Setter
+@Getter @Setter
 @Table(name = "books")
 @Entity
-public class BookEntity {
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(nullable = false)
     private String name;
 
-    @Column(name = "author")
+    @Column(nullable = false)
     private String author;
 
-    @Column(name = "year")
-    private int year;
+    private Date year;
 
-    @Column(name = "publishing")
     private String publishing;
 
-    @
-    private UserEntity user;
+    @OneToMany(mappedBy = "book", cascade = CascadeType.REMOVE)
+    private List<Summary> summaryEntities;
 
-    @OneToMany(mappedBy = "book")
-    private List<SummaryEntity> summaryEntities;
+    @Enumerated(EnumType.STRING)
+    private Genre genre;
 
 }

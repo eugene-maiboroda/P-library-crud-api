@@ -1,6 +1,7 @@
-package ua.javik.mylibraryspringboot.exeption;
+package ua.javik.mylibraryspringboot.exception;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
@@ -54,9 +55,11 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(HttpStatus.BAD_REQUEST, e.getMessage());
     }
     @ExceptionHandler(NotFoundException.class)
-    protected ResponseEntity<Object> handleBookNoFoundException(NotFoundException e) {
+    protected ResponseEntity<Object> handleNoFoundException(NotFoundException e) {
         return buildErrorResponse(HttpStatus.BAD_REQUEST, e.getMessage());
+
     }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ResponseEntity<Object> handleValidationException(MethodArgumentNotValidException ex) {
         Set<String> errorSet = new HashSet<>();
