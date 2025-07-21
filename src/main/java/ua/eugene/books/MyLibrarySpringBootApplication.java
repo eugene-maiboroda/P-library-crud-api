@@ -11,6 +11,6 @@ public class MyLibrarySpringBootApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(MyLibrarySpringBootApplication.class, args);
-		logger.error("Start app");
+		logger.info("Start app");
 	}
 }
