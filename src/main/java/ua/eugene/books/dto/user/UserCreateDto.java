@@ -1,6 +1,7 @@
 package ua.eugene.books.dto.user;
 
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,12 +14,14 @@ import java.sql.Date;
 @AllArgsConstructor
 public class UserCreateDto {
 
-    @NotNull
+    @NotBlank(message = "User name is blank")
+    private String userName;
+
+    @NotBlank(message = "Login is blank")
     private String login;
-    @NotNull
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    @NotNull
+
     private Date dateOfBirth;
-
-
 }

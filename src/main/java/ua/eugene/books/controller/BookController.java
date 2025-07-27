@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.*;
 import ua.eugene.books.dto.book.BookCreateDto;
 import ua.eugene.books.dto.RestResponse;
 import ua.eugene.books.dto.book.BookDto;
+import ua.eugene.books.dto.book.BookDtoInfo;
 import ua.eugene.books.service.inter.InterBookService;
 
 import java.util.List;
 
 @RestController()
-@RequestMapping("/api/book")
+@RequestMapping("/api/books")
 @RequiredArgsConstructor
 public class BookController {
 
@@ -23,13 +24,18 @@ public class BookController {
         return bookService.findById(id);
     }
 
+    @GetMapping("/info/{id}")
+public BookDtoInfo infoById(@PathVariable() Long id) {
+       return bookService.findByIdWithSummary(id);
+
+    }
     @GetMapping("/filter")
     public List<BookDto> findBookByAllParam(@RequestParam(required = false) String genre,
                                             @RequestParam(required = false) String name,
                                             @RequestParam(required = false) String author) {
         return bookService.findByAllParam(genre, name, author);
     }
-    @GetMapping("/library")
+    @GetMapping("/")
     public List<BookDto> getAllBooks() {
         return bookService.getAllBooks();
     }

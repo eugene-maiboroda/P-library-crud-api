@@ -10,7 +10,7 @@ import ua.eugene.books.dto.user.UserCreateDto;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/library")
+@RequestMapping("/api")
 public class AccountController {
 
     @GetMapping("/register")

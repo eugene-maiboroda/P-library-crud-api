@@ -5,10 +5,12 @@ import lombok.*;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 @Table(name = "users")
 @Entity
 public class User {
@@ -18,6 +20,9 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
+    private String userName;
+
+    @Column(nullable = false, unique = true)
     private String login;
 
     @Column(nullable = false)
@@ -26,9 +31,6 @@ public class User {
     @Column(nullable = false)
     private Date dateBirthday;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Role role;
 
     @OneToMany(mappedBy = "author")
     private List<Summary> summaries;
@@ -36,5 +38,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserBook> userBooks;
 
-
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id")})
+    private Set<Role> roles;
 }
